@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Design your schedule:</h3>
+<div th:each="event : ${eventList}">
+    <input th:field="*{eventList}" type="checkbox"
+           th:value="${event.name}"/>
+
+  <span th:text="${event.name}">Event Name</span><br/>
+</div>
+
+<form method="POST" th:object="${event}">
+<label>Description</label>
+
+<input type="text" th:field="*{event.name}"/>
+<button>Submit Event</button>
+</form>
+
+</body>
+</html>
