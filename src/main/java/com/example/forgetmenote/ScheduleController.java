@@ -1,36 +1,41 @@
 package com.example.forgetmenote;
 
-import models.Event;
-import models.Schedule;
+import com.example.forgetmenote.models.Event;
+import com.example.forgetmenote.models.Schedule;
+import com.example.forgetmenote.repositories.EventRepository;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 @Controller
 public class ScheduleController {
 
+    private final EventRepository eventRepository;
 
 
+    public ScheduleController(EventRepository eventRepository){
+        this.eventRepository = eventRepository;
+    }
     @ModelAttribute(name = "schedule")
     public Schedule schedule(){
         return new Schedule();
     }
+
 
     @ModelAttribute("event")
     public Event showEvent(){
         return new Event();
     }
 
+    @ModelAttribute("eventList")
+    public List<Event> showEventList(){
+        List<Event> eventList = eventRepository.findAll();
+        return eventList;
+    }
     @GetMapping("/schedule")
     public String showScheduleForm(){
+
         return "schedule";
     }
 

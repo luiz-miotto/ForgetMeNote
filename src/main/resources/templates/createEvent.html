@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
 <form method="POST" th:object="${event}" th:action="@{/createEvent}">
 
     <select name="eventType">
-        <option th:each="eventType : ${T(models.Event.EventType).values()}"
+        <option th:each="eventType : ${T(com.example.forgetmenote.models.Event.EventType).values()}"
                 th:value="${eventType}" th:text="${eventType}"></option>
     </select>
 
@@ -30,6 +31,11 @@
     <label>Event Description</label>
     <input type="text" th:field="*{description}">
     <div></div>
+    <label>Scheduled Date</label>
+    <input type="text" th:field="*{scheduledDate}">
+    <div></div>
+    <label>Due Date</label>
+    <input type="text" th:field="*{dueDate}">
 
     <button>Submit Event</button>
 </form>

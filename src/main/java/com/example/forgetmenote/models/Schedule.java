@@ -1,4 +1,4 @@
-package models;
+package com.example.forgetmenote.models;
 
 import java.util.List;
 

@@ -1,11 +1,12 @@
 package com.example.forgetmenote.repositories;
 
-import models.Event;
-import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Component;
+import com.example.forgetmenote.models.Event;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import org.springframework.stereotype.Repository;
 
-@Component
+//@Component
 @Repository
-public interface EventRepository extends MongoRepository<Event,String> {
+public interface EventRepository extends JpaRepository<Event,String> {
+
 }

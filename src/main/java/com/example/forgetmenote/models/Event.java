@@ -1,19 +1,26 @@
-package models;
+package com.example.forgetmenote.models;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
 
 @Data
-@Component
-@Document("event")
+@Entity
+@Table(name = "event")
 public class Event {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
     private String name;
     private String description;
     private int dateCreated;
-    private int scheduledDate;
-    private int dueDate;
+    private String scheduledDate;
+    private String dueDate;
     private int importance;
+
+    @Enumerated(EnumType.STRING)
     private Event.EventType eventType;
 
     public enum EventType{
@@ -47,6 +54,15 @@ public class Event {
     public void setName(String name){
         this.name = name;
         System.out.println("name was set");
+    }
+
+
+    public long getId(){
+        return id;
+    }
+
+    public void setId(long id){
+        this.id = id;
     }
 
     public String getDescription(){

@@ -1,7 +1,7 @@
 package com.example.forgetmenote;
 
 
-import models.Event;
+import com.example.forgetmenote.models.Event;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
