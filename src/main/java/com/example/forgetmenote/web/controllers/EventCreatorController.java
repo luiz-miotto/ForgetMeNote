@@ -1,4 +1,4 @@
-package com.example.forgetmenote;
+package com.example.forgetmenote.web.controllers;
 
 import com.example.forgetmenote.models.Event;
 import jakarta.validation.Valid;

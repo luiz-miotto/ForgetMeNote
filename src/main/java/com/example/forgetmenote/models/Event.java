@@ -31,6 +31,7 @@ public class Event {
     }
     public Event(){
         System.out.println("even with no name was created");
+        this.dateCreated = 0;
     }
 
     public Event(Event.EventType type){
